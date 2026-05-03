@@ -1,4 +1,3 @@
-import { AtSign } from 'lucide-react'
 import { SectionHeading } from './SectionHeading'
 
 export function About() {
@@ -24,7 +23,6 @@ export function About() {
             </p>
           </div>
           <a className="instagram-link" href="https://www.instagram.com/nutrialanfernandes" target="_blank" rel="noreferrer">
-            <AtSign size={18} />
             @nutrialanfernandes
           </a>
         </div>

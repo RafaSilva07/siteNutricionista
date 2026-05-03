@@ -1,19 +1,27 @@
+export type PlanVariant = 'gold' | 'red' | 'purple'
+
 export type Plan = {
+  id: 'premium-presencial' | 'online-individual' | 'casal-online'
   name: string
-  label: string
-  accent: 'gold' | 'red' | 'purple'
+  badge: string
+  shortDescription: string
   description: string
+  variant: PlanVariant
   inclusions: string[]
   prices: string[]
-  note?: string
+  note: string
 }
 
 export const plans: Plan[] = [
   {
-    name: 'Plano Premium',
-    label: 'Presencial',
-    accent: 'gold',
-    description: 'Para quem quer uma leitura mais completa do físico, com avaliação presencial e acompanhamento próximo.',
+    id: 'premium-presencial',
+    name: 'Premium Presencial',
+    badge: 'Mais completo',
+    shortDescription:
+      'Para quem quer acompanhamento completo, com avaliação presencial e análise antropométrica com imagens.',
+    description:
+      'O acompanhamento mais completo para quem quer avaliação presencial e análise mais detalhada da evolução.',
+    variant: 'gold',
     inclusions: [
       'Avaliação do aluno',
       'Acompanhamento no WhatsApp',
@@ -27,12 +35,16 @@ export const plans: Plan[] = [
       'Trimestral: R$ 675,00 à vista ou 3x com juros',
       'Semestral: R$ 1.200,00 à vista ou 6x com juros',
     ],
+    note: 'Inclui avaliação antropométrica presencial com imagens.',
   },
   {
-    name: 'Plano Online',
-    label: 'Individual',
-    accent: 'red',
-    description: 'Estratégia individual para hipertrofia, emagrecimento, recomposição corporal ou performance, de qualquer lugar.',
+    id: 'online-individual',
+    name: 'Online Individual',
+    badge: 'Mais prático',
+    shortDescription:
+      'Para quem busca evolução com praticidade, acompanhamento à distância e ajustes semanais.',
+    description: 'Para quem quer acompanhamento estratégico, sem depender de atendimento presencial.',
+    variant: 'red',
     inclusions: [
       'Avaliação do aluno',
       'Acompanhamento no WhatsApp',
@@ -46,12 +58,17 @@ export const plans: Plan[] = [
       'Trimestral: R$ 675,00 à vista ou 3x com juros',
       'Semestral: R$ 1.200,00 à vista ou 6x com juros',
     ],
+    note: 'Formato ideal para quem busca praticidade, acompanhamento próximo e evolução à distância.',
   },
   {
-    name: 'Plano Casal',
-    label: 'Online',
-    accent: 'purple',
-    description: 'Acompanhamento online para duas pessoas com estratégia, ajustes e rotina organizada para evoluir junto.',
+    id: 'casal-online',
+    name: 'Casal Online',
+    badge: 'Melhor para dois',
+    shortDescription:
+      'Para casais que querem evoluir juntos, com acompanhamento online e melhor custo-benefício.',
+    description:
+      'Para casais que querem evoluir juntos, com acompanhamento individualizado e economia em relação a dois planos separados.',
+    variant: 'purple',
     inclusions: [
       'Avaliação do aluno para ambos',
       'Acompanhamento no WhatsApp',
