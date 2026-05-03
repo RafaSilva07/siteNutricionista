@@ -74,14 +74,15 @@ a {
   height: 42px;
   place-items: center;
   border: 1px solid rgba(230, 57, 46, 0.45);
-  background: linear-gradient(135deg, #202936, #0f141b);
-  color: #ffffff;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 30px;
-  font-weight: 800;
-  line-height: 1;
-  transform: skew(-8deg);
+  background: linear-gradient(135deg, #f4f4f4, #b8c0cc);
   box-shadow: 0 12px 30px rgba(230, 57, 46, 0.14);
+}
+
+.logo-symbol img {
+  display: block;
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
 }
 
 .logo-text {
@@ -206,14 +207,13 @@ a {
 
 .hero-watermark {
   position: absolute;
-  top: 42px;
+  top: 30px;
   right: max(24px, calc((100vw - 1180px) / 2));
-  color: rgba(255, 255, 255, 0.035);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(240px, 36vw, 560px);
-  font-weight: 800;
-  line-height: 0.8;
-  transform: skew(-8deg);
+  width: clamp(260px, 34vw, 540px);
+  height: auto;
+  opacity: 0.055;
+  pointer-events: none;
+  user-select: none;
 }
 
 .hero-grid {

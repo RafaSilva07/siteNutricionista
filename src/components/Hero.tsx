@@ -6,7 +6,7 @@ const floatingTags = ['Hipertrofia', 'Emagrecimento', 'Performance', 'Powerlifti
 export function Hero() {
   return (
     <section id="inicio" className="hero-section">
-      <div className="hero-watermark">A</div>
+      <img className="hero-watermark" src="/alanbranco.png" alt="" aria-hidden="true" />
       <div className="container hero-grid">
         <motion.div
           className="hero-copy"
