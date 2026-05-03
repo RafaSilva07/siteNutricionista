@@ -1,0 +1,35 @@
+import { About } from './components/About'
+import { ContentSection } from './components/ContentSection'
+import { CTA } from './components/CTA'
+import { Differentials } from './components/Differentials'
+import { FAQ } from './components/FAQ'
+import { Footer } from './components/Footer'
+import { Header } from './components/Header'
+import { Hero } from './components/Hero'
+import { Method } from './components/Method'
+import { Plans } from './components/Plans'
+import { Results } from './components/Results'
+import { TargetAudience } from './components/TargetAudience'
+
+function App() {
+  return (
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <Differentials />
+        <TargetAudience />
+        <Method />
+        <Plans />
+        <Results />
+        <About />
+        <ContentSection />
+        <FAQ />
+        <CTA />
+      </main>
+      <Footer />
+    </>
+  )
+}
+
+export default App
