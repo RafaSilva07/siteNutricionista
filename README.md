@@ -15,7 +15,6 @@ Principais seções:
 - Planos interativos
 - Prova social preparada para conteúdos reais
 - Sobre Alan Fernandes
-- Conteúdos educativos
 - FAQ
 - CTA final
 

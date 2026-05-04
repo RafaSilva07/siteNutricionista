@@ -1,8 +1,18 @@
+import { motion, useReducedMotion } from 'framer-motion'
+import { fadeUp, motionVariant, viewport } from '../lib/animations'
 import { Logo } from './Logo'
 
 export function Footer() {
+  const prefersReducedMotion = useReducedMotion()
+
   return (
-    <footer className="site-footer">
+    <motion.footer
+      className="site-footer"
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewport}
+      variants={motionVariant(fadeUp, Boolean(prefersReducedMotion))}
+    >
       <div className="container footer-inner">
         <Logo />
         <div className="footer-links">
@@ -15,6 +25,6 @@ export function Footer() {
         </div>
         <p>Site desenvolvido para apresentação profissional e agendamento de acompanhamentos nutricionais.</p>
       </div>
-    </footer>
+    </motion.footer>
   )
 }

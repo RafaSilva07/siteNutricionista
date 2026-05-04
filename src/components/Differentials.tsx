@@ -1,5 +1,7 @@
+import { motion, useReducedMotion } from 'framer-motion'
 import type { LucideIcon } from 'lucide-react'
 import { Camera, ClipboardCheck, FileText, MessageCircle, Ruler, Target, Utensils } from 'lucide-react'
+import { fadeLeft, fadeRight, fadeUp, motionVariant, staggerContainer, viewport } from '../lib/animations'
 import { SectionHeading } from './SectionHeading'
 
 const items: Array<{ title: string; text: string; Icon: LucideIcon }> = [
@@ -13,6 +15,9 @@ const items: Array<{ title: string; text: string; Icon: LucideIcon }> = [
 ]
 
 export function Differentials() {
+  const prefersReducedMotion = useReducedMotion()
+  const reduced = Boolean(prefersReducedMotion)
+
   return (
     <section className="section">
       <div className="container">
@@ -21,15 +26,25 @@ export function Differentials() {
           title="Não é dieta pronta. É estratégia."
           text="Suplemento não corrige dieta mal feita. O que muda físico é plano, execução e ajuste."
         />
-        <div className="feature-grid">
-          {items.map(({ title, text, Icon }) => (
-            <article className="feature-card" key={title}>
-              <Icon size={24} />
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
+        <motion.div
+          className="feature-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          variants={motionVariant(staggerContainer, reduced)}
+        >
+          {items.map(({ title, text, Icon }, index) => {
+            const variant = index % 3 === 0 ? fadeLeft : index % 3 === 1 ? fadeUp : fadeRight
+
+            return (
+              <motion.article className="feature-card" key={title} variants={motionVariant(variant, reduced)}>
+                <Icon size={24} />
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </motion.article>
+            )
+          })}
+        </motion.div>
       </div>
     </section>
   )

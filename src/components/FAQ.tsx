@@ -1,23 +1,34 @@
+import { motion, useReducedMotion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { faqs } from '../data/faq'
+import { fadeUp, motionVariant, staggerContainer, viewport } from '../lib/animations'
 import { SectionHeading } from './SectionHeading'
 
 export function FAQ() {
+  const prefersReducedMotion = useReducedMotion()
+  const reduced = Boolean(prefersReducedMotion)
+
   return (
     <section id="faq" className="section faq-section">
       <div className="container">
         <SectionHeading kicker="FAQ" title="Perguntas diretas. Respostas sem enrolação." />
-        <div className="faq-list">
+        <motion.div
+          className="faq-list"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          variants={motionVariant(staggerContainer, reduced)}
+        >
           {faqs.map((faq) => (
-            <details key={faq.question}>
+            <motion.details key={faq.question} variants={motionVariant(fadeUp, reduced)}>
               <summary>
                 {faq.question}
                 <ChevronDown size={18} />
               </summary>
               <p>{faq.answer}</p>
-            </details>
+            </motion.details>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

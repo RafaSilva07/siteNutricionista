@@ -1,18 +1,29 @@
+import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Dumbbell, Target, Zap } from 'lucide-react'
-import { motion } from 'framer-motion'
 
 const floatingTags = ['Hipertrofia', 'Emagrecimento', 'Performance', 'Powerlifting', 'Pré-contest']
 
 export function Hero() {
+  const prefersReducedMotion = useReducedMotion()
+  const reduced = Boolean(prefersReducedMotion)
+
   return (
     <section id="inicio" className="hero-section">
-      <img className="hero-watermark" src="/alanbranco.png" alt="" aria-hidden="true" />
+      <motion.img
+        className="hero-watermark"
+        src="/alanbranco.png"
+        alt=""
+        aria-hidden="true"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.055 }}
+        transition={{ duration: reduced ? 0.2 : 0.9, ease: 'easeOut' }}
+      />
       <div className="container hero-grid">
         <motion.div
           className="hero-copy"
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: reduced ? 0 : 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           <span className="hero-kicker">Nutricionista Esportivo</span>
           <h1>Você treina sério. Sua alimentação também precisa acompanhar.</h1>
@@ -25,7 +36,12 @@ export function Hero() {
             <span>Linguagem direta.</span>
             <span>Resultado real.</span>
           </div>
-          <div className="hero-actions">
+          <motion.div
+            className="hero-actions"
+            initial={{ opacity: 0, scale: reduced ? 1 : 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.45, delay: 0.08, ease: 'easeOut' }}
+          >
             <a className="btn btn-primary" href="https://linktr.ee/Alan.Fernandes" target="_blank" rel="noreferrer">
               Agendar acompanhamento
               <ArrowRight size={18} />
@@ -33,13 +49,13 @@ export function Hero() {
             <a className="btn btn-secondary" href="#servicos">
               Ver planos
             </a>
-          </div>
+          </motion.div>
         </motion.div>
         <motion.div
           className="hero-panel"
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={{ opacity: 0, scale: reduced ? 1 : 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
+          transition={{ duration: 0.65, delay: 0.12, ease: 'easeOut' }}
         >
           <div className="panel-topline">
             <strong>@nutrialanfernandes</strong>

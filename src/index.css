@@ -23,6 +23,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px) 0 0 / 72px 72px,
     radial-gradient(circle at 20% 0%, rgba(192, 57, 43, 0.12), transparent 28rem),
@@ -296,7 +297,6 @@ h1 {
 .plan-choice,
 .selected-plan-panel,
 .result-card,
-.content-card,
 details,
 .about-badge {
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -412,15 +412,13 @@ blockquote {
   line-height: 1.75;
 }
 
-.feature-grid,
-.content-grid {
+.feature-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
 
 .feature-card,
-.content-card,
 .result-card {
   display: grid;
   gap: 12px;
@@ -430,7 +428,6 @@ blockquote {
 }
 
 .feature-card:hover,
-.content-card:hover,
 .result-card:hover,
 .plan-card:hover,
 .plan-choice:hover {
@@ -440,13 +437,11 @@ blockquote {
 }
 
 .feature-card svg,
-.content-card a,
 .result-card svg {
   color: #e6392e;
 }
 
 .feature-card h3,
-.content-card h3,
 .result-card h3,
 .method-card h3 {
   font-size: 27px;
@@ -455,7 +450,6 @@ blockquote {
 }
 
 .feature-card p,
-.content-card p,
 .result-card p,
 .method-card p,
 .plan-card p,
@@ -833,8 +827,7 @@ blockquote {
   font-size: 16px;
 }
 
-.instagram-link,
-.content-card a {
+.instagram-link {
   display: inline-flex;
   width: fit-content;
   align-items: center;
@@ -844,14 +837,6 @@ blockquote {
   font-size: 13px;
   font-weight: 800;
   text-transform: uppercase;
-}
-
-.content-card a {
-  margin-top: auto;
-}
-
-.content-card {
-  grid-template-rows: auto 1fr auto;
 }
 
 .faq-list {
@@ -966,8 +951,7 @@ details p {
 
   .feature-grid,
   .plan-choice-grid,
-  .result-grid,
-  .content-grid {
+  .result-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1034,7 +1018,6 @@ details p {
   .feature-grid,
   .plan-choice-grid,
   .result-grid,
-  .content-grid,
   .method-grid,
   .stats-strip {
     grid-template-columns: 1fr;
@@ -1071,7 +1054,6 @@ details p {
   }
 
   .feature-card,
-  .content-card,
   .result-card,
   .method-card {
     min-height: auto;
@@ -1084,5 +1066,27 @@ details p {
   .footer-links {
     flex-direction: column;
     gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .btn:hover,
+  .feature-card:hover,
+  .result-card:hover,
+  .plan-card:hover,
+  .plan-choice:hover {
+    transform: none;
   }
 }

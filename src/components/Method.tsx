@@ -1,3 +1,5 @@
+import { motion, useReducedMotion } from 'framer-motion'
+import { fadeUp, motionVariant, staggerContainer, viewport } from '../lib/animations'
 import { SectionHeading } from './SectionHeading'
 
 const steps = [
@@ -8,19 +10,28 @@ const steps = [
 ]
 
 export function Method() {
+  const prefersReducedMotion = useReducedMotion()
+  const reduced = Boolean(prefersReducedMotion)
+
   return (
     <section id="metodo" className="section">
       <div className="container">
         <SectionHeading kicker="Método" title="O método é simples: avaliar, ajustar e evoluir." />
-        <div className="method-grid">
+        <motion.div
+          className="method-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          variants={motionVariant(staggerContainer, reduced)}
+        >
           {steps.map(([number, title, text]) => (
-            <article className="method-card" key={number}>
+            <motion.article className="method-card" key={number} variants={motionVariant(fadeUp, reduced)}>
               <span>{number}</span>
               <h3>{title}</h3>
               <p>{text}</p>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

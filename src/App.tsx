@@ -1,5 +1,4 @@
 import { About } from './components/About'
-import { ContentSection } from './components/ContentSection'
 import { CTA } from './components/CTA'
 import { Differentials } from './components/Differentials'
 import { FAQ } from './components/FAQ'
@@ -23,7 +22,6 @@ function App() {
         <Plans />
         <Results />
         <About />
-        <ContentSection />
         <FAQ />
         <CTA />
       </main>
