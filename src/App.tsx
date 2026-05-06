@@ -14,7 +14,11 @@ function App() {
   return (
     <>
       <Header />
-      <main>
+      <main className="performance-stage">
+        <div className="stage-rail" aria-hidden="true">
+          <span>AF</span>
+          <span>PERFORMANCE NUTRITION</span>
+        </div>
         <Hero />
         <Differentials />
         <TargetAudience />

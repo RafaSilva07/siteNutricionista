@@ -16,7 +16,7 @@ export function Results() {
   const reduced = Boolean(prefersReducedMotion)
 
   return (
-    <section id="resultados" className="section">
+    <section id="resultados" className="section results-lab">
       <div className="container">
         <SectionHeading
           kicker="Prova social"
@@ -24,7 +24,7 @@ export function Results() {
           text="Estrutura preparada para receber depoimentos, evoluções e prints reais quando o material for enviado."
         />
         <motion.div
-          className="stats-strip"
+          className="stats-strip evidence-strip"
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
@@ -44,7 +44,7 @@ export function Results() {
           </motion.div>
         </motion.div>
         <motion.div
-          className="result-grid"
+          className="result-grid evidence-grid"
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
@@ -54,8 +54,9 @@ export function Results() {
             const variant = index % 3 === 0 ? fadeLeft : index % 3 === 1 ? fadeUp : fadeRight
 
             return (
-              <motion.article className="result-card" key={title} variants={motionVariant(variant, reduced)}>
+              <motion.article className="result-card evidence-card" key={title} variants={motionVariant(variant, reduced)}>
                 <Icon size={28} />
+                <div className="scan-frame" aria-hidden="true" />
                 <h3>{title}</h3>
                 <p>Espaço reservado para inserir material real do profissional.</p>
               </motion.article>

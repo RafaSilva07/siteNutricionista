@@ -1,8 +1,8 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { Fragment, useState } from 'react'
-import { fadeUp, motionVariant, scaleIn, staggerContainer, viewport } from '../lib/animations'
 import { plans, type Plan } from '../data/plans'
+import { fadeUp, motionVariant, scaleIn, staggerContainer, viewport } from '../lib/animations'
 import { SectionHeading } from './SectionHeading'
 
 const defaultPlanId: Plan['id'] = 'online-individual'
@@ -14,7 +14,7 @@ export function Plans() {
   const reduced = Boolean(prefersReducedMotion)
 
   return (
-    <section id="servicos" className="section plans-section">
+    <section id="servicos" className="section plans-section protocol-console">
       <div className="container">
         <SectionHeading
           kicker="Serviços"
@@ -23,7 +23,7 @@ export function Plans() {
         />
 
         <motion.div
-          className="plan-choice-grid"
+          className="plan-choice-grid console-tabs"
           role="list"
           aria-label="Escolha de acompanhamento"
           initial="hidden"
@@ -37,7 +37,7 @@ export function Plans() {
             return (
               <Fragment key={plan.id}>
                 <motion.button
-                  className={`plan-choice plan-${plan.variant} ${isSelected ? 'is-selected' : 'is-muted'}`}
+                  className={`plan-choice console-tab plan-${plan.variant} ${isSelected ? 'is-selected' : 'is-muted'}`}
                   type="button"
                   onClick={() => setSelectedPlanId(plan.id)}
                   aria-pressed={isSelected}
@@ -69,19 +69,20 @@ function SelectedPlanDetails({ plan, reduced }: { plan: Plan; reduced: boolean }
   return (
     <AnimatePresence mode="wait">
       <motion.article
-        className={`selected-plan-panel plan-${plan.variant}`}
+        className={`selected-plan-panel console-panel plan-${plan.variant}`}
         key={plan.id}
         initial="hidden"
         animate="visible"
         exit={{ opacity: 0, y: reduced ? 0 : -10 }}
         variants={motionVariant(scaleIn, reduced)}
       >
-        <div className="selected-plan-note">
+        <div className="selected-plan-note console-summary">
+          <span className="console-code">PROTOCOLO ATIVO</span>
           <strong>Detalhes do acompanhamento</strong>
           <p className="plan-note">{plan.note}</p>
         </div>
 
-        <div className="selected-plan-details">
+        <div className="selected-plan-details console-details">
           <div>
             <h4>Inclusões</h4>
             <ul className="inclusion-list">

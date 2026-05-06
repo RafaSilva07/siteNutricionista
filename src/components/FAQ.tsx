@@ -9,19 +9,20 @@ export function FAQ() {
   const reduced = Boolean(prefersReducedMotion)
 
   return (
-    <section id="faq" className="section faq-section">
-      <div className="container">
+    <section id="faq" className="section faq-section audit-section">
+      <div className="container faq-console">
         <SectionHeading kicker="FAQ" title="Perguntas diretas. Respostas sem enrolação." />
         <motion.div
-          className="faq-list"
+          className="faq-list audit-list"
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
           variants={motionVariant(staggerContainer, reduced)}
         >
-          {faqs.map((faq) => (
+          {faqs.map((faq, index) => (
             <motion.details key={faq.question} variants={motionVariant(fadeUp, reduced)}>
               <summary>
+                <span>{String(index + 1).padStart(2, '0')}</span>
                 {faq.question}
                 <ChevronDown size={18} />
               </summary>

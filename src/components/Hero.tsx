@@ -8,14 +8,14 @@ export function Hero() {
   const reduced = Boolean(prefersReducedMotion)
 
   return (
-    <section id="inicio" className="hero-section">
+    <section id="inicio" className="hero-section lab-hero">
       <motion.img
         className="hero-watermark"
         src="/alanbranco.png"
         alt=""
         aria-hidden="true"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.055 }}
+        animate={{ opacity: 0.075 }}
         transition={{ duration: reduced ? 0.2 : 0.9, ease: 'easeOut' }}
       />
       <div className="container hero-grid">
@@ -51,16 +51,26 @@ export function Hero() {
             </a>
           </motion.div>
         </motion.div>
+
         <motion.div
-          className="hero-panel"
+          className="hero-panel diagnostic-panel"
           initial={{ opacity: 0, scale: reduced ? 1 : 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.65, delay: 0.12, ease: 'easeOut' }}
         >
           <div className="panel-topline">
             <strong>@nutrialanfernandes</strong>
+            <span>Diagnóstico alimentar</span>
           </div>
           <blockquote>“Você ainda come mal, por isso não evolui.”</blockquote>
+
+          <div className="performance-scope" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+            <strong>AF</strong>
+          </div>
+
           <div className="metric-grid">
             <div>
               <Target size={22} />

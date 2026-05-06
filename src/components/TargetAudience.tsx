@@ -18,27 +18,34 @@ export function TargetAudience() {
   const reduced = Boolean(prefersReducedMotion)
 
   return (
-    <section className="section section-split">
-      <div className="container split-grid">
-        <SectionHeading kicker="Para quem é" title="Esse acompanhamento é para você que..." />
-        <motion.div
-          className="check-list"
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-          variants={motionVariant(staggerContainer, reduced)}
-        >
-          {items.map((item, index) => (
-            <motion.div
-              className="check-item"
-              key={item}
-              variants={motionVariant(index % 2 === 0 ? fadeRight : fadeLeft, reduced)}
-            >
-              <Check size={18} />
-              <span>{item}</span>
-            </motion.div>
-          ))}
-        </motion.div>
+    <section className="section symptoms-section">
+      <div className="container symptoms-grid">
+        <div className="symptoms-dial" aria-hidden="true">
+          <span>18-40</span>
+          <strong>FORÇA</strong>
+          <small>COMPOSIÇÃO CORPORAL</small>
+        </div>
+        <div>
+          <SectionHeading kicker="Para quem é" title="Esse acompanhamento é para você que..." />
+          <motion.div
+            className="check-list symptom-list"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            variants={motionVariant(staggerContainer, reduced)}
+          >
+            {items.map((item, index) => (
+              <motion.div
+                className="check-item symptom-item"
+                key={item}
+                variants={motionVariant(index % 2 === 0 ? fadeRight : fadeLeft, reduced)}
+              >
+                <Check size={18} />
+                <span>{item}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   )

@@ -19,15 +19,23 @@ export function Differentials() {
   const reduced = Boolean(prefersReducedMotion)
 
   return (
-    <section className="section">
-      <div className="container">
-        <SectionHeading
-          kicker="Autoridade aplicada"
-          title="Não é dieta pronta. É estratégia."
-          text="Suplemento não corrige dieta mal feita. O que muda físico é plano, execução e ajuste."
-        />
+    <section className="section intervention-section">
+      <div className="container lab-split">
+        <div className="sticky-copy">
+          <SectionHeading
+            kicker="Autoridade aplicada"
+            title="Não é dieta pronta. É estratégia."
+            text="Suplemento não corrige dieta mal feita. O que muda físico é plano, execução e ajuste."
+          />
+          <div className="lab-readout" aria-hidden="true">
+            <span>MACROS</span>
+            <span>ADESÃO</span>
+            <span>AJUSTE</span>
+          </div>
+        </div>
+
         <motion.div
-          className="feature-grid"
+          className="intervention-matrix"
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
@@ -37,7 +45,8 @@ export function Differentials() {
             const variant = index % 3 === 0 ? fadeLeft : index % 3 === 1 ? fadeUp : fadeRight
 
             return (
-              <motion.article className="feature-card" key={title} variants={motionVariant(variant, reduced)}>
+              <motion.article className="feature-card matrix-card" key={title} variants={motionVariant(variant, reduced)}>
+                <span className="card-index">{String(index + 1).padStart(2, '0')}</span>
                 <Icon size={24} />
                 <h3>{title}</h3>
                 <p>{text}</p>

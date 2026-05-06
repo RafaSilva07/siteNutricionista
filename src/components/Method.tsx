@@ -14,21 +14,23 @@ export function Method() {
   const reduced = Boolean(prefersReducedMotion)
 
   return (
-    <section id="metodo" className="section">
+    <section id="metodo" className="section protocol-section">
       <div className="container">
         <SectionHeading kicker="Método" title="O método é simples: avaliar, ajustar e evoluir." />
         <motion.div
-          className="method-grid"
+          className="protocol-track"
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
           variants={motionVariant(staggerContainer, reduced)}
         >
           {steps.map(([number, title, text]) => (
-            <motion.article className="method-card" key={number} variants={motionVariant(fadeUp, reduced)}>
+            <motion.article className="method-card protocol-step" key={number} variants={motionVariant(fadeUp, reduced)}>
               <span>{number}</span>
-              <h3>{title}</h3>
-              <p>{text}</p>
+              <div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
             </motion.article>
           ))}
         </motion.div>

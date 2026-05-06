@@ -7,10 +7,10 @@ export function About() {
   const reduced = Boolean(prefersReducedMotion)
 
   return (
-    <section id="sobre" className="section about-section">
+    <section id="sobre" className="section about-section coach-file">
       <div className="container about-grid">
         <motion.div
-          className="about-badge"
+          className="about-badge identity-plate"
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
@@ -20,7 +20,7 @@ export function About() {
           <strong>Alan Fernandes</strong>
           <small>Nutrição Esportiva</small>
         </motion.div>
-        <motion.div initial="hidden" whileInView="visible" viewport={viewport} variants={motionVariant(fadeRight, reduced)}>
+        <motion.div className="coach-copy" initial="hidden" whileInView="visible" viewport={viewport} variants={motionVariant(fadeRight, reduced)}>
           <SectionHeading kicker="Sobre" title="Alan Fernandes" />
           <motion.div className="about-copy" variants={motionVariant(fadeUp, reduced)}>
             <p>
